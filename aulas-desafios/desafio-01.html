@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Exercício 01</title>
+    </head>
+    <body>
+        <h1>Exercício 01</h1>
+    </body>
+    <script>
+        // O método abaixo compara o sorteio anterior ao atual, se eles forem iguais o contador soma 1
+        // e imprime os números sorteados, assim como qtd de repetições
+        function sorteioFase3() {
+            let sorteio = ["0", "0", "0"]
+            let cnt = 0
+            let sorteioAtual
+            let sorteioAnterior = "Inicio"
+            // console.log(`\n`)
+            for (i = 0; i < sorteio.length; i++) {
+                sorteioAtual = parseInt(Math.random() * 3) + 1
+                sorteio[i] = sorteioAtual
+                if (sorteioAnterior == sorteioAtual) {
+                    cnt += 1
+                    console.log(`Porta (${i})- Aberta`)
+                } else {
+                    console.log("Tente de novo")
+                    sorteioAnterior = sorteioAtual
+                }
+            }
+            console.log(
+                `\nNúmeros sorteados:${sorteio[0]},${sorteio[1]},${sorteio[2]}`
+            )
+            console.log(`Qtd de repetições :${cnt}`)
+            if (sorteio[0] == sorteio[1] && sorteio[1] == sorteio[2]) {
+                console.log("Todos os números são iguais!")
+            }
+        }
+
+        // Fase 1
+        // Preenche o array com número aleatórios
+        // let sorteio = ["0", "0", "0"]
+        // sorteio.forEach((v, i) => {
+        //     sorteio[i] = parseInt(Math.random() * 3) + 1
+        //     console.log(sorteio[i])
+        // })
+
+        // Fase 2
+        // O método abaixo preenche todo o array, em seguida verifica qual posição existe um elemento repetido
+        function sorteioFase2() {
+            let sorteio = ["0", "0", "0"]
+            sorteio.forEach((v, i) => {
+                sorteio[i] = parseInt(Math.random() * 3) + 1
+                // console.log(`Número sorteado:${sorteio[i]}`)
+            })
+
+            for (i = 0; i < sorteio.length; i++) {
+                let j = i + 1
+                for (j; j < sorteio.length; j++) {
+                    if (sorteio[0] == sorteio[1] && sorteio[1] == sorteio[2]) {
+                        console.log(`Todos os números sorteados são iguais!`)
+                    } else if (sorteio[i] === sorteio[j]) {
+                        console.log(`Porta ${j}: Aberta`)
+                    } else {
+                        console.log("Tente de novo")
+                    }
+                }
+            }
+            console.log(
+                `Números sorteados:${sorteio[0]},${sorteio[1]},${sorteio[2]}`
+            )
+        }
+    </script>
+</html>
