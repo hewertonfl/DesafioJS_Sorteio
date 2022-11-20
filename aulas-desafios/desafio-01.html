@@ -54,26 +54,26 @@
             let sorteioAnterior = "Inicio"
 
             while (check != 3) {
+                ver += 1
                 sorteio = sorteioFase1()
                 if (sorteioAnterior == sorteio) {
                     check += 1
-                    console.log(`Porta (${check})- Aberta`)
-                    continue
+                    console.log(`Porta ${check}: Aberta`)
                 } else if (
                     sorteio[0] == sorteio[1] &&
                     sorteio[1] == sorteio[2]
                 ) {
                     check += 1
                     cnt += 1
-                    continue
+                    console.log(`Porta ${check}: Aberta`)
                 } else {
                     console.log("Tente de novo")
-                    sorteioAnterior = sorteio
                 }
+                sorteioAnterior = sorteio
                 numeroTentativas += 1
             }
-            console.log(`Qtd de repetições :${cnt}`)
-            console.log(`Qtd de tentativas":${numeroTentativas}`)
+            console.log(`Qtd de repetições: ${cnt}`)
+            console.log(`Qtd de tentativas: ${numeroTentativas}`)
             console.log(`Ok! Você venceu!`)
         }
     </script>
